@@ -5,8 +5,8 @@ rrd_file=ipfs.rrd
 graph_file=ipfs.png
 start_time=$(cat start_time)
 end_time=$(cat end_time)
-smoothing=120
-wantlist_scale=0.001
+smoothing=0
+wantlist_scale=0.00002
 
 rrdtool graph "$graph_file" \
   -s $start_time -e $end_time \

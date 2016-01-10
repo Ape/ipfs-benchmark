@@ -7,7 +7,7 @@ start_time_file=start_time
 end_time_file=end_time
 
 if ! [ -e "$rrd_file" ]; then
-  rrdtool create "$rrd_file" -s 10 --no-overwrite \
+  rrdtool create "$rrd_file" -s 1 --no-overwrite \
     DS:data_in:DERIVE:10:0:U \
     DS:bw_total_in:DERIVE:10:0:U \
     DS:bw_total_out:DERIVE:10:0:U \
@@ -22,7 +22,7 @@ fi
 
 date +%s > $start_time_file
 
-while printf '\n'; sleep 5; do :; done | while read l; do
+while printf '\n'; sleep 0.5; do :; done | while read l; do
   data_in=U
   bw_total_in=U
   bw_total_out=U
